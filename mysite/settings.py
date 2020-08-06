@@ -133,7 +133,7 @@ STATICFILES_FINDERS = [
 
 PROJECT_ROOT = os.path.join(os.path.abspath(__file__))
 
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+STATIC_ROOT = os.path.join(PROJECT_ROOT, '/bootstrap-theme/assets/img/')
 
 STATIC_URL = '/static/'
 
