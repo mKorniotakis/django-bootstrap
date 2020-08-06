@@ -50,14 +50,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
-MIDDLEWARE_CLASSES = (
-    # Simplified static file serving.
-    # https://warehouse.python.org/project/whitenoise/
-    'whitenoise.middleware.WhiteNoiseMiddleware',
-    ...
-)
 
 ROOT_URLCONF = 'mysite.urls'
 
@@ -90,6 +85,8 @@ DATABASES = {
     }
 }
 
+# Hosts to be allowed
+ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -132,6 +129,9 @@ STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 ]
 
+PROJECT_ROOT= os.path.join(os.path.abspath(__file__))
+
+# STATIC_ROOT= os.path.join(PROJECT_ROOT, 'staticfiles')
 
 STATIC_URL = '/static/'
 
@@ -140,3 +140,4 @@ STATICFILES_DIRS = (
     "/bootstrap-theme/assets/img/"
 )
 
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
