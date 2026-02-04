@@ -1,0 +1,10 @@
+services:
+  django:
+    build: .
+    container_name: django-bootstrap
+    ports:
+      - "8000:8000"
+    environment:
+      DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY}
+    env_file:
+      - .env
